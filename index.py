@@ -19,7 +19,6 @@ from pyrogram import Client, filters, sync
 from pyrogram.errors import FloodWait
 from io import StringIO
 from config import *
-from function import *
 from time import sleep, perf_counter
 
 stop = False
@@ -66,8 +65,6 @@ def ping_message_handler(client, message):
 @client.on_message(filters.command(help_command, prefixes=commands_prefix) & filters.me)
 def help_message_handler(client, message):
     text = """
-    **Prefikslər**: [.] - [/] - [!] - [-]
-**Əmrlər**: https://telegra.ph/Komandy-04-28
 👨‍💻 **Qurucu:** @DucTheVulpe
     """
     client.edit_message_text(message.chat.id, message.id, text, disable_web_page_preview=True)
@@ -999,11 +996,5 @@ async def loved_message_handler(client, message):
         for heart in animation:
             await asyncio.sleep(0.5)
             await message.edit(heart)
-
-
-@client.on_message(filters.command(crypto_command, prefixes=commands_prefix) & filters.me)
-async def crypto_message_handler(client, message):
-    crypto_info = crypto()
-    await message.reply(crypto_info)
 
 client.run()
