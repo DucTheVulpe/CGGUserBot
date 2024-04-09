@@ -60,7 +60,7 @@ async def alive(_, m):
     reply_msg += f"__@Pyrogram__: `{__pyro_version__}`\n"
     end_time = time.time()
     reply_msg += f"__CGG aktivdir__: {uptime}\n"
-    reply_msg += f"__Qurucu__: `@DucDeVulpe`"
+    reply_msg += f"__Qurucu__: @DucDeVulpe"
     photo = "https://telegra.ph/file/2c43a3f5381e507da915d.jpg"
     await m.delete()
     if m.reply_to_message:
