@@ -36,7 +36,7 @@ data = response.json()
 usd_rate = data['Valute']['USD']['Value']
 a = round(usd_rate, 2)
 
-print('\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Бот успешно запустился!\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Разработчик: ' + GOLD + '@javainteger\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Телеграм канал: ' + GOLD + 'https://t.me/selfcodetg' + RESET)
+print('\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Bot aktivdir!\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Dev: ' + GOLD + '@DucDeVulpe\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Telegram kanal: ' + GOLD + 'https://t.me/CGGUB' + RESET)
 
 @client.on_message(filters.command(spam_command, prefixes=commands_prefix) & filters.me)
 def spam_message_handler(client, message):
@@ -66,9 +66,9 @@ def spam_message_handler(client, message):
 @client.on_message(filters.command(ping_command, prefixes=commands_prefix) & filters.me)
 def ping_message_handler(client, message):
     start = perf_counter()
-    client.edit_message_text(message.chat.id, message.id, '<b>Понг!</b>')
+    client.edit_message_text(message.chat.id, message.id, '<b>Pong!</b>')
     end = perf_counter()
-    client.edit_message_text(message.chat.id, message.id, f'<b>Понг! {round(end - start, 3)} сек.</b>')
+    client.edit_message_text(message.chat.id, message.id, f'<b>Pong! {round(end - start, 3)} san.</b>')
 
 @client.on_message(filters.command(dollar_command, prefixes=commands_prefix) & filters.me)
 def message_handler(client, message):
@@ -77,9 +77,9 @@ def message_handler(client, message):
 @client.on_message(filters.command(help_command, prefixes=commands_prefix) & filters.me)
 def help_message_handler(client, message):
     text = """
-    **Префиксы**: [.] - [/] - [!] - [-]
-**Команды**: https://telegra.ph/Komandy-04-28
-👨‍💻 **Разработчик:** @javainteger
+    **Prefikslər**: [.] - [/] - [!] - [-]
+**Əmrlər**: https://telegra.ph/Komandy-04-28
+👨‍💻 **Qurucu:** @DucTheVulpe
     """
     client.edit_message_text(message.chat.id, message.id, text, disable_web_page_preview=True)
 
