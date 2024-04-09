@@ -5,7 +5,7 @@ import asyncio
 from CGG import app, CMD_HELP
 from config import PREFIX, LOG_CHAT
 from CGG.helpers.pyrohelper import get_arg
-import CGG.database.afkdb as CGH
+import CGG.database.afkdb as CGG
 from CGG.helpers.pyrohelper import user_afk
 from CGG.modules.alive import get_readable_time
 from CGG.helpers.utils import get_message_type, Types
