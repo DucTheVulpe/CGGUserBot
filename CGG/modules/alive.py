@@ -55,7 +55,7 @@ def get_readable_time(seconds: int) -> str:
 async def alive(_, m):
     start_time = time.time()
     uptime = get_readable_time((time.time() - StartTime))
-    reply_msg = f"**[CGG](https://github.com/DucTheVulpe/CGGUserBot)**\n"
+    reply_msg = f"**[CGGUserBot](https://t.me/CGGUserBot)**\n"
     reply_msg += f"__Python__: `{__python_version__}`\n"
     reply_msg += f"__@Pyrogram__: `{__pyro_version__}`\n"
     end_time = time.time()
