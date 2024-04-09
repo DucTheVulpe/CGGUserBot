@@ -13,8 +13,8 @@ CMD_HELP.update(
     {
         "Alive": """
 『 **Alive** 』
-  `alive` -> Show off to people with your bot using this command.
-  `ping` -> Shows you the response speed of the bot.
+  `alive` -> Bu əmr botun çalışdığını göstərir.
+  `ping` -> Sizə botun cavab sürətini göstərir.
 """
     }
 )
@@ -30,7 +30,7 @@ def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
     time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
+    time_suffix_list = ["san", "dəq", "saat", "gün"]
 
     while count < 4:
         count += 1
@@ -57,10 +57,11 @@ async def alive(_, m):
     uptime = get_readable_time((time.time() - StartTime))
     reply_msg = f"**[CGG](https://github.com/DucTheVulpe/CGGUserBot)**\n"
     reply_msg += f"__Python__: `{__python_version__}`\n"
-    reply_msg += f"__@Pyrogram version__: `{__pyro_version__}`\n"
+    reply_msg += f"__@Pyrogram__: `{__pyro_version__}`\n"
     end_time = time.time()
-    reply_msg += f"__CGG uptime__: {uptime}"
-    photo = "https://telegra.ph//file/dcd069c3eb26c9fa3011d.jpg"
+    reply_msg += f"__CGG aktivdir__: {uptime}\n"
+    reply_msg += f"__Qurucu__: `@DucDeVulpe`
+    photo = "https://telegra.ph/file/2c43a3f5381e507da915d.jpg"
     await m.delete()
     if m.reply_to_message:
         await app.send_photo(
