@@ -31,11 +31,6 @@ os.system('clear')
 client.start()
 client.stop()
 
-response = requests.get('https://www.cbr-xml-daily.ru/daily_json.js')
-data = response.json()
-usd_rate = data['Valute']['USD']['Value']
-a = round(usd_rate, 2)
-
 print('\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Bot aktivdir!\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Dev: ' + GOLD + '@DucDeVulpe\n' + BLUE + '[' + GREEN + 'INFO' + BLUE + ']' + WHITE + ' Telegram kanal: ' + GOLD + 'https://t.me/CGGUB' + RESET)
 
 @client.on_message(filters.command(spam_command, prefixes=commands_prefix) & filters.me)
@@ -69,10 +64,6 @@ def ping_message_handler(client, message):
     client.edit_message_text(message.chat.id, message.id, '<b>Pong!</b>')
     end = perf_counter()
     client.edit_message_text(message.chat.id, message.id, f'<b>Pong! {round(end - start, 3)} san.</b>')
-
-@client.on_message(filters.command(dollar_command, prefixes=commands_prefix) & filters.me)
-def message_handler(client, message):
-    client.edit_message_text(message.chat.id, message.id, '`1` Доллар [dollar] = {}₽'.format(a))
 
 @client.on_message(filters.command(help_command, prefixes=commands_prefix) & filters.me)
 def help_message_handler(client, message):
@@ -119,87 +110,6 @@ def love_message_handler(client, message):
     sleep(1/2)
     client.edit_message_text(message.chat.id, message.id, '❤️')
 
-@client.on_message(filters.command(bulling_command, prefixes=commands_prefix) & filters.me)
-async def bulling_command_handler(client, message):
-    try:
-        command, member, sped, kol, shabl = message.text.split()
-        sped = int(sped)
-        kol = int(kol)
-
-        if shabl in ["Красивый-текст", "Провокации", "Дефолтные", "Все"]:
-            with open(f"shabloni_{shabl.lower()}.txt", encoding="UTF-8") as file:
-                lines = file.readlines()
-
-            for i in range(kol):
-                message_text = f"{member} " + random.choice(lines)
-                await client.send_message(message.chat.id, message_text)
-                await asyncio.sleep(sped)
-
-            await message.delete()
-        
-        else:
-            await client.send_message(message.chat.id, "Ошибка: Неправильно введено название шаблона!\nШаблоны: Красивый-текст, Провокации, Дефолтные, Все")
-            await message.delete()
-
-    except ValueError:
-        await client.send_message(message.chat.id, "Ошибка: Неправильно введены аргументы!\nПример использования команды: /bulling @username 1 10 Все")
-        await message.delete()
-
-@client.on_message(filters.command(compli_command, prefixes=commands_prefix) & filters.me)
-def compli_command_handler(client, message):
-    txt = comp.split("\n")
-    e = True
-    for i in txt:
-        if e == True:
-            e = False
-        else:
-            try:
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-            except:
-                pass
-
-@client.on_message(filters.command(night_command, prefixes=commands_prefix) & filters.me)
-def night_command_handler(client, message):
-    txt = night.split("\n")
-    e = True
-    for i in txt:
-        if e == True:
-            e = False
-        else:
-            try:
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-                message.edit(f'{i}')
-                sleep(1)
-            except:
-                pass
 
 @client.on_message(filters.command(loves_command, prefixes=commands_prefix) & filters.me)
 def loves_command_handler(client, message):
